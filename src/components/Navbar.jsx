@@ -14,13 +14,7 @@ const Navbar = () => {
       console.log(error);
     }
   };
-  const gmailUrl =async()=>{
-    try {
-      await captureScreenshot ()
-    } catch (error) {
-        console.log(error)
-    }
-  }
+ 
   return (
     <>
       <div className="grid min-h-[120px] w-full place-items-center overflow-x-scroll rounded-lg p-6 lg:overflow-visible">

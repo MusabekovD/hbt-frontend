@@ -18,16 +18,7 @@ const BookingCard = ({ hotel }) => {
   const hotelName = hotel?.attributes?.name;
   const description = hotel?.attributes?.description;
   const image = hotel.attributes.photo_main.data[0].attributes.formats.large.url
-  const {likedFunction,like, setHotel} = useContext(GlobalContext)
-  setHotel(Id)
-  console.log(image)
-  const handleLike = async()=>{
-    try {
-      await likedFunction()
-    } catch (error) {
-      alert(error)
-    }
-  }  
+
   return (
   
       <div>
@@ -39,7 +30,7 @@ const BookingCard = ({ hotel }) => {
               style={{ objectFit: "cover", height: "500px" }}
             />
             <div className="to-bg-black-10 absolute inset-0 h-full w-full bg-gradient-to-tr from-transparent via-transparent to-black/60 " />
-            <FaHeart onClick={()=>handleLike(Id)} size={30} style={{color:` ${like ? "red" : ""}`}} className="absolute top-4 right-4 "/>
+            <FaHeart   size={30} style={{color:"red"}} className="absolute top-4 right-4 "/>
             </CardHeader>
           <CardBody>
             <div className="mb-3 flex items-center justify-between">
