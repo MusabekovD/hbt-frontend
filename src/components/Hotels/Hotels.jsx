@@ -5,9 +5,8 @@ import Loading from "./Loading";
 import { UserContext } from "../../context/GlobalContextProvider";
 
 const Hotels = () => {
-  const { filteredSearchData, loading } = UserContext()
+  const { filteredHotels, loading } = UserContext()
 
-  console.log(filteredSearchData)
   return (
     <div className="w-4/5 mx-auto">
       <div className="text-center p-10">
@@ -15,12 +14,12 @@ const Hotels = () => {
       </div>
 
       <SearchField />
-      { filteredSearchData.length === 0 && (
+      { loading ? null : filteredHotels.length === 0 && (
         <p className="flex justify-center w-full items-center text-2xl font-bold text-indigo-700">Not found :( </p>
       )}
       {loading ? <Loading /> : (
         <div className="flex  flex-wrap items-center justify-center gap-[50px]">
-          {filteredSearchData?.map((hotel) => (
+          {filteredHotels?.map((hotel) => (
             <BookingCard hotel={hotel} />
           ))}
         </div>

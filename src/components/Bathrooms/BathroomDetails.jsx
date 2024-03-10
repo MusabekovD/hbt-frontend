@@ -29,7 +29,7 @@ const aboutUrl = bathDetail?.attributes.photo_about.data[0]?.attributes.formats.
         <div className="w-full lg:w-6/12">
           <img
             className="lg:block hidden w-full"
-            src={`https://hbt-backend.onrender.com${aboutUrl}`}
+            src={aboutUrl}
             alt="people discussing on board"
             style={{ width: "100%", height: "400px", objectFit: "contain" }}
           />

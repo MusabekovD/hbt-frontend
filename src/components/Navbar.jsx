@@ -2,7 +2,7 @@ import { Link, NavLink, useNavigate } from "react-router-dom";
 import { UserAuth } from "../context/AuthContext";
 
 const Navbar = () => {
-  const { user, logOut, captureScreenshot,gmailRef } = UserAuth();
+  const { user, logOut } = UserAuth();
   const navigate = useNavigate();
 
   const handleOut = async () => {
@@ -14,7 +14,7 @@ const Navbar = () => {
       console.log(error);
     }
   };
- 
+
   return (
     <>
       <div className="grid min-h-[120px] w-full place-items-center overflow-x-scroll rounded-lg p-6 lg:overflow-visible">
@@ -52,7 +52,7 @@ const Navbar = () => {
                   </ul>
                 </div>
                 {user?.email ? (
-                  <div className="flex items-center gap-x-1 ">
+               <div className="flex items-center gap-x-1 ">
                     <button
                       className="hidden px-4 py-2 font-sans text-xs font-bold text-center text-gray-900 uppercase align-middle transition-all rounded-lg select-none hover:bg-gray-900/10 active:bg-gray-900/20 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none lg:inline-block"
                       type="button"

@@ -4,14 +4,13 @@ import { useParams } from "react-router-dom";
 const HotelDetail = () => {
   const { id } = useParams();
   const [hotels, setHotels] = useState(null);
-  const image = hotels?.attributes?.photo_main?.data[0];
-  const imageUrl = image?.attributes.url; 
+  const image = hotels?.attributes?.photo_about?.data[0].attributes.formats.large.url
+  console.log(image)
   useEffect(() => {
     fetch(`https://hbt-backend.onrender.com/api/hotels/${id}?populate=*`)
       .then((res) => res.json())
-      .then((data) => setHotels(data.data));
+      .then((data) => setHotels(data?.data));
   }, [id]);
- console.log(hotels)
   return (
 <div className="2xl:container 2xl:mx-auto lg:py-16 lg:px-20 md:py-12 md:px-6 py-9 px-4">
 <p className="font-normal text-sm leading-3 text-indigo-700 hover:text-indigo-800 cursor-pointer pb-2">
@@ -20,16 +19,16 @@ const HotelDetail = () => {
 <div className="flex lg:flex-row flex-col lg:gap-8 sm:gap-10 gap-12">
   <div className="w-full lg:w-6/12">
     <h2 className="w-full font-bold lg:text-4xl text-3xl lg:leading-10 leading-9">
-      {hotels?.attributes.name}
+      {hotels?.attributes?.name}
     </h2>
     <p className="font-normal text-base leading-6 text-gray-600 mt-6">
-   {hotels?.attributes.description}
+   {hotels?.attributes?.description}
     </p>
   </div>
   <div className="w-full lg:w-6/12">
     <img
       className="lg:block hidden w-full"
-      src={`https://hbt-backend.onrender.com${imageUrl}`}
+      src={image}
       alt="people discussing on board"
       style={{width:"100%", height:"400px", objectFit:"contain"}}
     />
